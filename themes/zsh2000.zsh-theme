@@ -50,7 +50,7 @@ prompt_end() {
 prompt_user_hostname() {
   local user=`whoami`
 
-  if [ -n "$SSH_CLIENT" ]; then
+  if [ -n "$SSH_CLIENT" ] || [ "$ZSH_2000_ENABLE_USER" = "true" ]; then
     prompt_segment black default "%(!.%{%F{yellow}%}.)$user@%m"
   fi
 }
